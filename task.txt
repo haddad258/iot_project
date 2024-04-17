@@ -1,0 +1,12 @@
+Contact Details + Assigned Emergency Contacts (orh)- employee - module RH
+Assigned Dependents (orh)- employee - module RH
+Assigned Supervisors (orh) -Assigned Subordinates - employee - module RH
+Qualifications (orh) - employee - module RH
+////////////////////////////////////////////////////////////
+claim - greif -- operational RH (orh)
+Pointage (next)  -- operational RH
+attendance - presence (next) -- operational RH
+attendance - presence 'calcul' (next) -- operational RH
+leave-allocation affectation de congé  leave-type (type de congé) (next) -- operational RH
+employee-transfer (next)- operational RH
+

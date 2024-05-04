@@ -36,15 +36,15 @@ function DataCollect({ selectedSensors }) {
         { label: '#', field: 'index' },
         { label: 'measurement', field: 'measurement' },
         { label: 'measurement_accuracy', field: 'measurement_accuracy' },
+        { label: 'unit', field: 'unit' },
         { label: 'status', field: 'status' },
         { label: 'date', field: 'created_at' },
 
     ]
     const getListData = async () => {
         try {
-            const list = await settingsDataCollecteds.getDataCollectedbySensors(selectedSensors.id);
+            const list = await settingsDataCollecteds.getDataCollectedbySensors(selectedSensors.address_mac);
             if (list) {
-                console.log(list?.data);
                 setlist(list?.data);
 
             }
@@ -80,14 +80,14 @@ function DataCollect({ selectedSensors }) {
                             <CRow>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                                        <div className="text-body-secondary text-truncate small">Pageviews</div>
-                                        <div className="fs-5 fw-semibold">78,623</div>
+                                        <div className="text-body-secondary text-truncate small">Last register Temperature</div>
+                                        <div className="fs-5 fw-semibold">{list[0]?.measurement}</div>
                                     </div>
                                 </CCol>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                                        <div className="text-body-secondary text-truncate small">Organic</div>
-                                        <div className="fs-5 fw-semibold">49,123</div>
+                                        <div className="text-body-secondary text-truncate small">Last register Humidity</div>
+                                        <div className="fs-5 fw-semibold">{list[1]?.measurement}</div>
                                     </div>
                                 </CCol>
                             </CRow>
@@ -108,16 +108,16 @@ function DataCollect({ selectedSensors }) {
                                 </CCol>
                                 <CCol xs={6}>
                                     <CCard className="mb-4">
-                                        <CCardHeader>Bar Chart</CCardHeader>
+                                        <CCardHeader>Temperature</CCardHeader>
                                         <CCardBody>
                                             <CChartBar
                                                 data={{
-                                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                                    labels: [0,1,2,3,4,5,6,7,8,9,10],
                                                     datasets: [
                                                         {
-                                                            label: 'GitHub Commits',
+                                                            label: 'Last 10 registered',
                                                             backgroundColor: '#f87979',
-                                                            data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
+                                                            data: list.map(e=>e.measurement),
                                                         },
                                                     ],
                                                 }}
@@ -128,7 +128,7 @@ function DataCollect({ selectedSensors }) {
                                 </CCol>
                                 <CCol xs={6}>
                                     <CCard className="mb-4">
-                                        <CCardHeader>Line Chart</CCardHeader>
+                                        <CCardHeader>Humidity</CCardHeader>
                                         <CCardBody>
                                             <CChartLine
                                                 data={{

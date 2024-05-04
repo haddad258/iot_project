@@ -5,6 +5,7 @@ const app = require("../../../../index");
 
 const addDatacollecte = async (req, res, next) => {
   try {
+    console.log("here",req.body)
     await app.db
       .table("data_collected")
       .insert(req.body)
@@ -16,6 +17,7 @@ const addDatacollecte = async (req, res, next) => {
         });
       });
   } catch (error) {
+    console.log("here",error)
     next(
       new createHttpError.BadRequest("Invalid values to create a dataCollecte.")
     );
@@ -91,10 +93,11 @@ const getDatacollecteById = async (req, res, next) => {
 };
 const getAllDatacollectesbySensors = async (req, res, next) => {
   try {
-    console.log("req.params",req.params)
+    console.log("req.params address_mac_sensor",req.params)
     await app.db
       .from("data_collected")
       .select("*")
+      .where("address_mac_sensor","=",req.params.id)
       .then((rows) => {
         if (rows.length === 0) {
           return res.json({

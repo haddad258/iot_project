@@ -6,6 +6,8 @@ exports.up = function (knex) {
         table.uuid("id").notNullable().defaultTo(knex.raw('uuid_generate_v4()')).primary();
         table.uuid("sensor").references("id").inTable("sensors");
         table.uuid("gateway").references("id").inTable("gateways");
+        table.string('address_mac_sensor');
+        table.string('address_mac_gateway');
         table.double('measurement', 10, 2);
         table.decimal('measurement_accuracy', 10, 2);
         table.string('unit');

@@ -14,6 +14,8 @@ const Dashboard   = React.lazy(() => import('src/Templates/dashboard/Dashboard')
 
 const Page404 = React.lazy(() => import('src/Templates/pages/page404/Page404'));
 
+const TestAPI   = React.lazy(() => import('src/viewSuperAdmin/Test.API'))
+
 const routeSupper = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/supper/settings/admins/users/list', name: 'UserList', element: UsersAdmin },
@@ -25,6 +27,12 @@ const routeSupper = [
   { path: '/supper/settings/assign/index', name: 'Order', element: OrdersAssign },
   { path: '/supper/data/visual/index', name: 'Order', element: DataVisualisation },
   { path: '/supper/dashbord', name: 'Order', element: Dashboard },
+
+
+
+  { path: '/test/api/test', name: 'TestAPI', element: TestAPI },
+
+  
 
 
   

@@ -10,9 +10,13 @@ function getRandomElementFromArray(array) {
   function getRandomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+  function getRandomNumber() {
+    return Math.random() * 0.8 + 0.1;
+  }
 const data_qualitys =["Accuracy","Precision","Consistency","Reliability"]
 const transmission_protocols =["REST","MQTT","HTTP","5G","3G-4G"]
 const stat= ["ON","OFF","Suspend"]
+const statN= [0.14,0.12,0.2,0.1,0.16,0.0,0.07,0.05,0.09,0.13]
 const getListe = async (req, res, next) => {
   try {
     
@@ -48,9 +52,25 @@ const getListe = async (req, res, next) => {
   }
 };
 
+const norep = async (req, res, next) => {
+  try {
+    console.log("norep")
+    await app.db
+    .table("data_collected")
+    .update({ 
+      status:getRandomElementFromArray(stat),
+      measurement_accuracy:getRandomNumber(),
+      
+    })
 
+   
+  } catch (error) {
+    next(new createHttpError.InternalServerError(error));
+  }
+};
 
 module.exports = {
     getListe,
+    norep
 };
   

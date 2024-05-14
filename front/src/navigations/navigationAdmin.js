@@ -20,6 +20,10 @@ const _navAdmin = [
       text: 'NEW',
     },
   },
+ 
+
+
+  
   {
     component: CNavGroup,
     name: i18n.t('generalSettingsMenuTitle'),
@@ -100,6 +104,17 @@ const _navAdmin = [
       },
 
     ],
+    
+  },
+  {
+    component: CNavItem,
+    name: i18n.t('TestAPI'),
+    to: '/test/api/test',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    badge: {
+      color: "danger",
+      text: 'Test',
+    },
   },
   
 ]

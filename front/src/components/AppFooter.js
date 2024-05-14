@@ -13,8 +13,8 @@ const AppFooter = () => {
       </div> */}
       <div className="ms-auto">
         <span className="me-1">{i18n.t('poweredByFooter')}</span>
-        <a href="https://mdscresoft-group.com/" target="_blank" rel="noopener noreferrer">
-          MDSCRESOFT Group
+        <a href="https://itesLAB.com/" target="_blank" rel="noopener noreferrer">
+          ItesLAB
         </a>
       </div>
     </CFooter>

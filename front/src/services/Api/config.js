@@ -1,4 +1,5 @@
 const API_URL = process.env.REACT_APP_API_URL;
+const API_URLTest ="http://localhost:8000"
 const Apis = {
   UserLoginAPI: `${API_URL}/api/root/login`,
   UserLoginEmployeAPI: `${API_URL}/api/root/employe/login`,
@@ -20,6 +21,9 @@ const ApiSettingsIOT = {
   api_Gateway: `${API_URL}/api/gateways/list/`,
   api_Order: `${API_URL}/api/orders/index/`,
   api_DataCollected: `${API_URL}/api/data/collect/from/sensors/`,
+  api_TestAPI: `${API_URLTest}/api/tutorials`,
+
+  
   
 
 };

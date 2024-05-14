@@ -94,16 +94,16 @@ function DataCollect({ selectedSensors }) {
                             <CRow>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-info py-1 px-3">
-                                        <div className="text-body-secondary text-truncate small">New Clients</div>
+                                        <div className="text-body-secondary text-truncate small">number of measurements in 15 days</div>
                                         <div className="fs-5 fw-semibold">9,123</div>
                                     </div>
                                 </CCol>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-danger py-1 px-3 mb-3">
                                         <div className="text-body-secondary text-truncate small">
-                                            Recurring Clients
+                                          Time SLOT                                           
                                         </div>
-                                        <div className="fs-5 fw-semibold">22,643</div>
+                                        <div className="fs-5 fw-semibold">5 ms</div>
                                     </div>
                                 </CCol>
                                 <CCol xs={6}>
@@ -132,24 +132,24 @@ function DataCollect({ selectedSensors }) {
                                         <CCardBody>
                                             <CChartLine
                                                 data={{
-                                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                                    labels: [0,1,2,3,4,5,6,7,8,9,10],
                                                     datasets: [
                                                         {
-                                                            label: 'My First dataset',
+                                                            label: 'threshold',
                                                             backgroundColor: 'rgba(220, 220, 220, 0.2)',
                                                             borderColor: 'rgba(220, 220, 220, 1)',
                                                             pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                                                             pointBorderColor: '#fff',
-                                                            data: [random(), random(), random(), random(), random(), random(), random()],
+                                                            data: list.map(e=>e.measurement),
                                                         },
-                                                        {
-                                                            label: 'My Second dataset',
-                                                            backgroundColor: 'rgba(151, 187, 205, 0.2)',
-                                                            borderColor: 'rgba(151, 187, 205, 1)',
-                                                            pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-                                                            pointBorderColor: '#fff',
-                                                            data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
-                                                        },
+                                                        // {
+                                                        //     label: 'threshold',
+                                                        //     backgroundColor: 'rgba(151, 187, 205, 0.2)',
+                                                        //     borderColor: 'rgba(151, 187, 205, 1)',
+                                                        //     pointBackgroundColor: 'rgba(151, 187, 205, 1)',
+                                                        //     pointBorderColor: '#fff',
+                                                        //     data: [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],
+                                                        // },
                                                     ],
                                                 }}
                                             />
@@ -158,16 +158,17 @@ function DataCollect({ selectedSensors }) {
                                 </CCol>
                                 <CCol xs={6}>
                                     <CCard className="mb-4">
-                                        <CCardHeader>Line Chart</CCardHeader>
+                                        <CCardHeader>Chart T</CCardHeader>
                                         <CCardBody>
                                             <HighchartsReact
                                                 highcharts={Highcharts}
                                                 options={{
                                                     title: {
-                                                        text: 'My Chart'
+                                                        text: ''
                                                     },
                                                     series: [{
-                                                        data: [1, 2, 3, 4, 5]
+                                                        data: list.map(e=>e.measurement),
+
                                                     }]
                                                 }}
                                             />

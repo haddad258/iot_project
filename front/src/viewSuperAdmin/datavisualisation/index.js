@@ -12,11 +12,13 @@ import i18n from 'src/i18n';
 import { renderInformations } from 'src/components/IOT/renderInformations';
 import GenericTable from 'src/components/Generic.Table';
 import DataCollect from './Data.Collect'
+import SensorsDecompose from '../sensors/Sensors.Decompose';
 const DataVisualisation = () => {
     const [List, setList] = useState([]);
     const [Listorders, setListorders] = useState([]);
     const [Listsensors, setListsensors] = useState([]);
     const [selectedGW, setselectedGW] = useState({});
+    const [sensorselected,setsensorselected]= useState('')
 
     const fetchGateways = async () => {
         try {
@@ -50,6 +52,7 @@ const DataVisualisation = () => {
             setselectedGW(selected[0])
             const list = await settingsSensors.getSensorbyGatway(value);
             if (list) {
+                setsensorselected(value)
                 setListsensors(list?.data?.sensors);
                 console.log(list?.data);
             }
@@ -71,7 +74,13 @@ const DataVisualisation = () => {
         {
             label: 'Thresholds',
             field: 'Thresholds_min',
-            render: (item) => <DataCollect  selectedSensors={item} />
+            render: (item) => 
+            <>
+             <SensorsDecompose refresh={() => fetchSensors(sensorselected)} selectedSensor={item} />
+            
+            <DataCollect  selectedSensors={item} />
+            </>
+           
 
         },
         

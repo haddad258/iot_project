@@ -9,6 +9,7 @@ import {
 import { settingsSensors } from 'src/services/Settings.iot/index';
 import GenericTable from 'src/components/Generic.Table';
 import SensorsC from './Sensors'
+import SensorsDecompose from './Sensors.Decompose';
 const Sensors = () => {
     const [List, setList] = useState([]);
 
@@ -44,6 +45,7 @@ const Sensors = () => {
             (
                 <>
                     <SensorsC refresh={() => fetchSensors()} selectedSensor={item} />
+                    <SensorsDecompose refresh={() => fetchSensors()} selectedSensor={item} />
                 </>
             )
             ,

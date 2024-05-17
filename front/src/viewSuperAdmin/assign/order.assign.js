@@ -82,7 +82,7 @@ function OrdersAssign({selectedGW,refresh}) {
                 size="xl"
             >
                 <CModalHeader onClose={() => setVisible(false)}>
-                    <CModalTitle id="LiveDemoExampleLabel">Add Products for  Gateways</CModalTitle>
+                    <CModalTitle id="LiveDemoExampleLabel">Add orders for  Gateways</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
                     <CForm
@@ -98,7 +98,7 @@ function OrdersAssign({selectedGW,refresh}) {
 
 
                                 <CCol md={12} className="position-relative">
-                                    <CFormLabel htmlFor="validationTooltip04">Type status</CFormLabel>
+                                    <CFormLabel htmlFor="validationTooltip04">Select orders</CFormLabel>
                                     <CFormSelect
                                         defaultValue={Gateway.status || ""}
                                         onChange={(e) => {
@@ -110,7 +110,7 @@ function OrdersAssign({selectedGW,refresh}) {
                                         id="validationTooltip04"
                                         required
                                     >
-                                        <option value={Gateway.status || ""}>{Gateway.status}</option>
+                                        <option value={Gateway.status || ""}>select orders</option>
                                         {List.map((senor, index) => (
                                             <option key={`type${index}`} value={senor.id}>
                                                 {senor.ref}

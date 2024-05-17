@@ -23,7 +23,6 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { settingsDataCollecteds } from 'src/services/Settings.iot';
 import GenericTable from 'src/components/Generic.Table';
-const random = () => Math.round(Math.random() * 100)
 
 function DataCollect({ selectedSensors }) {
     const [visible, setVisible] = useState(false);
@@ -67,7 +66,8 @@ function DataCollect({ selectedSensors }) {
                 fullscreen
             >
                 <CModalHeader onClose={() => setVisible(false)}>
-                    <CModalTitle id="LiveDemoExampleLabel">@IP {selectedSensors.address_ip} </CModalTitle>
+                    <CModalTitle id="LiveDemoExampleLabel">@IP {selectedSensors.address_ip}
+                     </CModalTitle>
                 </CModalHeader>
                 <CModalBody>
                     <CRow>
@@ -80,13 +80,13 @@ function DataCollect({ selectedSensors }) {
                             <CRow>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
-                                        <div className="text-body-secondary text-truncate small">Last register Temperature</div>
+                                        <div className="text-body-secondary text-truncate small">Last register {selectedSensors.description}</div>
                                         <div className="fs-5 fw-semibold">{list[0]?.measurement}</div>
                                     </div>
                                 </CCol>
                                 <CCol xs={6}>
                                     <div className="border-start border-start-4 border-start-success py-1 px-3 mb-3">
-                                        <div className="text-body-secondary text-truncate small">Last register Humidity</div>
+                                        <div className="text-body-secondary text-truncate small">Last register {selectedSensors.description}</div>
                                         <div className="fs-5 fw-semibold">{list[1]?.measurement}</div>
                                     </div>
                                 </CCol>
@@ -108,7 +108,7 @@ function DataCollect({ selectedSensors }) {
                                 </CCol>
                                 <CCol xs={6}>
                                     <CCard className="mb-4">
-                                        <CCardHeader>Temperature</CCardHeader>
+                                        <CCardHeader>{selectedSensors.description}</CCardHeader>
                                         <CCardBody>
                                             <CChartBar
                                                 data={{
@@ -128,7 +128,7 @@ function DataCollect({ selectedSensors }) {
                                 </CCol>
                                 <CCol xs={6}>
                                     <CCard className="mb-4">
-                                        <CCardHeader>Humidity</CCardHeader>
+                                        <CCardHeader>{selectedSensors.description}</CCardHeader>
                                         <CCardBody>
                                             <CChartLine
                                                 data={{

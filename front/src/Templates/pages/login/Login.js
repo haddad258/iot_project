@@ -33,7 +33,7 @@ function Login() {
       try {
         const logRes = await login(values.email, values.password);
         if (logRes) {
-          navigate('/dashboard');
+          navigate('/supper/data/visual/index');
         } else {
           alert('Login failed');
         }

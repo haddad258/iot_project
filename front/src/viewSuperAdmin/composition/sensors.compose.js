@@ -82,7 +82,7 @@ function SensorCompose({selectedGW,refresh}) {
                 size="xl"
             >
                 <CModalHeader onClose={() => setVisible(false)}>
-                    <CModalTitle id="LiveDemoExampleLabel">Add Products for  Gateways</CModalTitle>
+                    <CModalTitle id="LiveDemoExampleLabel">Add sensors for  Gateways</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
                     <CForm
@@ -98,7 +98,7 @@ function SensorCompose({selectedGW,refresh}) {
 
 
                                 <CCol md={12} className="position-relative">
-                                    <CFormLabel htmlFor="validationTooltip04">Type status</CFormLabel>
+                                    <CFormLabel htmlFor="validationTooltip04">Select sensors</CFormLabel>
                                     <CFormSelect
                                         defaultValue={Gateway.status || ""}
                                         onChange={(e) => {
@@ -110,7 +110,7 @@ function SensorCompose({selectedGW,refresh}) {
                                         id="validationTooltip04"
                                         required
                                     >
-                                        <option value={Gateway.status || ""}>{Gateway.status}</option>
+                                        <option value={Gateway.status || ""}>Select sensors</option>
                                         {List.map((senor, index) => (
                                             <option key={`type${index}`} value={senor.id}>
                                                 {senor.name}

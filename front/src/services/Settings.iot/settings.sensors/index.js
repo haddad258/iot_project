@@ -21,6 +21,7 @@ const addSensor = async (status) => {
 };
 const updateSensor = async (data) => {
     try {
+        console.log(`${ApiSettingsIOT.api_Sensor}${data.id}`)
         const result = await api.put(`${ApiSettingsIOT.api_Sensor}${data.id}`, data);
         return result.data.error ? null : result.data;
     } catch (error) {

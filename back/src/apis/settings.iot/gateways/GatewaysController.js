@@ -60,6 +60,24 @@ const updateGatewaysCompose = async (req, res, next) => {
     next(new createHttpError.InternalServerError(error));
   }
 };
+const decomposeGatways = async (req, res, next) => {
+  try {
+    console.log("decomposeGatways",req.body)
+    await app.db
+      .table("sensors")
+      .update({ gateways:null, updated_at: new Date() })
+      .where("id", "IN", req.body?.sensors)
+      .then(() => {
+        res.status(200).json({
+          message: "Successfully updated",
+          status: 200,
+          data: req.body,
+        });
+      });
+  } catch (error) {
+    next(new createHttpError.InternalServerError(error));
+  }
+};
 const updateGatewaysAssign = async (req, res, next) => {
   try {
     console.log("updateGatewaysAssign",req.body)
@@ -136,6 +154,7 @@ module.exports = {
   getAllGateways,
   getGatewaysById,
   updateGatewaysCompose,
-  updateGatewaysAssign
+  updateGatewaysAssign,
+  decomposeGatways
 };
   

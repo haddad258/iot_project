@@ -69,7 +69,7 @@ exports.up = function (knex) {
         table.string('last_maintenance_date');
         table.text('description');
         table.enum('status', ['Active', 'Inactive', 'Error', 'Maintenance']).defaultTo('Inactive');
-        table.uuid("gateways").references("id").inTable("gateways");
+        table.uuid("gateways").nullable().references("id").inTable("gateways");
         table.timestamp('created_at').defaultTo(knex.fn.now());
         table.timestamp('updated_at').defaultTo(knex.fn.now());
       })

@@ -6,9 +6,9 @@ module.exports = {
       host: "127.0.0.1",
       port: "5432",
       user: "postgres",
-      password: "psql",
+      password: "root@enabelsirh",
      // database: "testdel",
-      database: "testot",
+      database: "testdbiot",
     },
     // client: "postgresql",
     // connection: {
